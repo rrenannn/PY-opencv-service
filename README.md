@@ -41,6 +41,9 @@ O primeiro marco deve entregar um fluxo completo e simples:
 - Manifesto JSON ou CSV no ZIP de saída com nome original, novo nome, pontuação
   e decisão; isso facilita a calibração e a auditoria do resultado.
 
+O processo recomendado para definir o valor inicial está em
+[`docs/calibracao_do_limiar.md`](docs/calibracao_do_limiar.md).
+
 ## Critério de conclusão da Fase 1
 
 A fase estará concluída quando um usuário conseguir enviar um pacote real de
