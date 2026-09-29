@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="Filtre fotos borradas de uma vistoria sem perder a sequência."
+    >
+    <title>Fotos de vistoria</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <script src="/static/app.js" defer></script>
+  </head>
+  <body>
+    <main class="page-shell">
+      <section class="intro" aria-labelledby="page-title">
+        <span class="eyebrow">Vistoria em ordem</span>
+        <h1 id="page-title">Separe as fotos nítidas em poucos instantes.</h1>
+        <p>
+          Envie o ZIP original. A sequência é preservada, as imagens borradas
+          são removidas e você recebe um novo pacote pronto para usar.
+        </p>
+        <ol class="steps" aria-label="Etapas do processamento">
+          <li><span>1</span> Envie o pacote</li>
+          <li><span>2</span> Aguarde a análise</li>
+          <li><span>3</span> Baixe o resultado</li>
+        </ol>
+      </section>
+
+      <section class="upload-card" aria-labelledby="upload-title">
+        <div>
+          <p class="card-kicker">Novo processamento</p>
+          <h2 id="upload-title">Selecione as fotos</h2>
+        </div>
+
+        <form id="upload-form">
+          <label class="drop-zone" id="drop-zone" for="archive">
+            <input id="archive" name="archive" type="file" accept=".zip" required>
+            <span class="upload-icon" aria-hidden="true">↑</span>
+            <strong id="file-label">Arraste seu ZIP aqui</strong>
+            <span>ou clique para escolher um arquivo</span>
+            <small>Formato ZIP · limite de 100 MB</small>
+          </label>
+
+          <label class="threshold-field" for="threshold">
+            <span>
+              Limiar de nitidez
+              <small>Opcional — deixe vazio para usar o padrão</small>
+            </span>
+            <input
+              id="threshold"
+              name="threshold"
+              type="number"
+              min="0"
+              step="0.1"
+              placeholder="100"
+            >
+          </label>
+
+          <button id="submit-button" type="submit">Processar fotos</button>
+        </form>
+
+        <div id="status" class="status" role="status" aria-live="polite" hidden>
+          <div class="spinner" aria-hidden="true"></div>
+          <div>
+            <strong id="status-title">Analisando suas fotos…</strong>
+            <p id="status-message">Não feche esta página durante o processamento.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
