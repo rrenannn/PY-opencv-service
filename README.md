@@ -48,3 +48,23 @@ vistoria, receber o ZIP filtrado na ordem correta e entender, pelo resumo, quais
 fotos foram removidas e por quê. O fluxo deve ter testes automatizados e não
 deixar arquivos temporários após sucesso ou erro.
 
+## Desenvolvimento local
+
+Requer Python 3.12 ou superior.
+
+```bash
+python -m venv .venv
+source .venv/bin/activate
+pip install -e '.[dev]'
+uvicorn app.main:app --reload
+```
+
+A API estará disponível em `http://127.0.0.1:8000`, com documentação interativa
+em `/docs` e verificação de saúde em `/health`.
+
+Para executar as verificações locais:
+
+```bash
+ruff check .
+pytest
+```
