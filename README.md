@@ -72,3 +72,6 @@ Para executar as verificações locais:
 ruff check .
 pytest
 ```
+
+As mesmas verificações são executadas pelo GitHub Actions em cada push para a
+branch `main` e em pull requests.
