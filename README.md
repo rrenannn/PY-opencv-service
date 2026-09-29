@@ -65,6 +65,18 @@ uvicorn app.main:app --reload
 A API estará disponível em `http://127.0.0.1:8000`, com documentação interativa
 em `/docs` e verificação de saúde em `/health`.
 
+Para trabalhar na interface React com atualização automática, use outro terminal:
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+O Vite abrirá a interface em `http://127.0.0.1:5173/static/` e encaminhará as chamadas
+da API para o FastAPI. Para gerar a versão servida pelo backend, execute
+`npm run build` dentro de `frontend`.
+
 O endpoint `POST /api/process` recebe o ZIP no campo `archive`. O campo opcional
 `threshold` substitui o limiar padrão para uma requisição. As configurações
 disponíveis estão documentadas em `.env.example`.
@@ -74,6 +86,7 @@ Para executar as verificações locais:
 ```bash
 ruff check .
 pytest
+cd frontend && npm run lint && npm run build
 ```
 
 As mesmas verificações são executadas pelo GitHub Actions em cada push para a

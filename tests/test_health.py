@@ -1,3 +1,5 @@
+import re
+
 from fastapi.testclient import TestClient
 
 from app.main import app
@@ -16,5 +18,7 @@ def test_home_page_loads_frontend() -> None:
     response = client.get("/")
 
     assert response.status_code == 200
-    assert "Separe as fotos nítidas" in response.text
-    assert client.get("/static/app.js").status_code == 200
+    assert 'id="root"' in response.text
+    asset_path = re.search(r'src="(/static/assets/[^\"]+\.js)"', response.text)
+    assert asset_path is not None
+    assert client.get(asset_path.group(1)).status_code == 200
