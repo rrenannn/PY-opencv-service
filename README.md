@@ -62,6 +62,10 @@ uvicorn app.main:app --reload
 A API estará disponível em `http://127.0.0.1:8000`, com documentação interativa
 em `/docs` e verificação de saúde em `/health`.
 
+O endpoint `POST /api/process` recebe o ZIP no campo `archive`. O campo opcional
+`threshold` substitui o limiar padrão para uma requisição. As configurações
+disponíveis estão documentadas em `.env.example`.
+
 Para executar as verificações locais:
 
 ```bash
